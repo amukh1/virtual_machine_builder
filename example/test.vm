@@ -11,7 +11,7 @@ sub,
 instruc-end;
 
 instruction:
-ld-immd,
+load_immd,
 0011,
 2,
 instruc-end;

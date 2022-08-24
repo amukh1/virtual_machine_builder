@@ -73,7 +73,7 @@ instruc-end;
 End your instruction with `instruc-end;`
 You can have as many instructions as you want in one file.
 
-Then, make a folder called "instructions" and in it make a file called `{name}.js` and put this code in it:
+To add functionality to your intructions, you must make functions for each instruction **(MAKE SURE THE FUNCTION NAMES MATCH THE INSTRUCTION)**, and pass them each into an object. Then when you call the object into the prep() method **(see later)**, include this object.
 <br>
 
 ```js
@@ -107,7 +107,7 @@ sub,
 instruc-end;
 
 instruction:
-ld-immd,
+ld_immd,
 0011,
 2,
 instruc-end;
@@ -168,9 +168,15 @@ Then, create a new virtual machine and run it:
 ```js
 var vm_schematic = fs.readFileSync('./file.vm', 'utf8');
 var vm = new VM(schematic, true); // takes in the contents of the .vm file, and a boolean for "console" mode or not.
-vm.prep(); // prepares the virtual machine for execution and parses vm file
+vm.prep({
+    add: add,
+    sub: sub,
+    ld_immd: ld_immd,
+    output: output
+}); // prepares the virtual machine for execution and parses vm file
 
 vm.run(`binary_code\n`); // runs the virtual machine with many lines of binary code separated by newlines
+vm.runln(`0001 1 2 3`); // adds 1 and 2, and stores the result in register 3 (4th register including 0)
 // vm.runln(`binary_code`); // runs the virtual machine with one line of binary code
 ```
 

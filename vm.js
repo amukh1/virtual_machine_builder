@@ -37,7 +37,7 @@ if(this.instructions[line.split(" ")[0]]){
         })
     }
 
-prep(){
+prep(bleh){
 let s = this.schematic.split(";")
 
 // console.log(s)
@@ -49,9 +49,12 @@ s.forEach((x, index)=> {
     let name = body.split(',')[0].split("\n").join("").split(" ").join("").split("\r").join("")
     // console.log(name + 'eeee')
     let opcode = body.split(',')[1].split("\n").join("").split(" ").join("").split("\r").join("")
-    let operands = body.split(',')[2].split("\n").join("")
+    let operands = body.split(',')[2].split("\n").join("").split(" ").join("").split("\r").join("")
     this.instructions[opcode]= {
-        execute: require('./instructions/'+name+'.js'),
+        name: name,
+        opcode: opcode,
+        operands: operands,
+        execute: bleh[name],
     }
 }
         });

@@ -1,6 +1,6 @@
 {
   "name": "virtual_machine_builder",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A language for building virtual machines!",
   "main": "vm.js",
   "scripts": {
