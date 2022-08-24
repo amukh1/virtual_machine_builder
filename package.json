@@ -1,0 +1,14 @@
+{
+  "name": "virtual_machine_builder",
+  "version": "1.0.0",
+  "description": "A language for building virtual machines!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "virtual_machines"
+  ],
+  "author": "amukh1",
+  "license": "ISC"
+}
