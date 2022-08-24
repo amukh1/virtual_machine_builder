@@ -73,7 +73,7 @@ instruc-end;
 End your instruction with `instruc-end;`
 You can have as many instructions as you want in one file.
 
-then, make a folder and make a file called `{name}.js` and put this code in it:
+Then, make a folder called "instructions" and in it make a file called `{name}.js` and put this code in it:
 <br>
 
 ```js
@@ -85,7 +85,7 @@ function add(operands, vm){
     // vm.ram
 }
 
-Customize the intruction however you want in the javascript file.
+// Customize the intruction however you want in the javascript file.
 
 module.exports = add;
 ```
@@ -118,6 +118,8 @@ output,
 1,
 instruc-end;
 ```
+
+See "example" folder for the Javascript implementations.
 
 <!-- <style>
 .docs {

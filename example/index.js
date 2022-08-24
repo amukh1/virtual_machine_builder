@@ -1,4 +1,4 @@
-var VM = require('./vm.js')
+var VM = require('../vm.js')
 var fs = require('fs')
 
 let vm = new VM(fs.readFileSync(process.argv[2], 'utf8'), true)
