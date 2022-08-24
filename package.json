@@ -1,8 +1,8 @@
 {
   "name": "virtual_machine_builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A language for building virtual machines!",
-  "main": "index.js",
+  "main": "vm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

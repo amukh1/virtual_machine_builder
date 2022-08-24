@@ -152,6 +152,30 @@ instruc-end;
 
 <br>
 
+## Actually using your new VM:
+
+In another Javascript file (outside the instructions folder), import the library
+
+```js
+var VM = require('virtual_machine_builder');
+var fs = require('fs'); // file system 
+```
+
+Then, create a new virtual machine and run it:
+
+```js
+var vm_schematic = fs.readFileSync('./file.vm', 'utf8');
+var vm = new VM(schematic, true); // takes in the contents of the .vm file, and a boolean for "console" mode or not.
+vm.prep(); // prepares the virtual machine for execution and parses vm file
+
+vm.run(`binary_code\n`); // runs the virtual machine with many lines of binary code separated by newlines
+// vm.runln(`binary_code`); // runs the virtual machine with one line of binary code
+```
+
+<br>
+
+Passing false into the second argument of the initial VM declaration will make it so the vm doesnt log all the instructions while prepping.
+
 ## Contributing
 
 You can contribute to the project by making a pull request on [GitHub](https://github.com/amukh1/virtual_machine_builder).
