@@ -1,7 +1,7 @@
 var VM = require('../vm.js')
 var fs = require('fs')
 
-let vm = new VM(fs.readFileSync(process.argv[2], 'utf8'), true)
+let vm = new VM(fs.readFileSync(process.argv[2], 'utf8'))
 vm.prep({
     add: function(operands, vm){
         // console.log(operands)
@@ -22,10 +22,24 @@ vm.prep({
     
     output: function(operands, vm){
         console.log(vm.registers[operands[1]])
+    },
+    halt: function(operands, vm){
+        // vm.halt = true
+        process.exit(0)
+    },
+    jmp: function(operands, vm){
+        this.cline = parseInt(operands[1])  - 1
     }
         
 })
-vm.run(`0011 1 2`)
-vm.run(`0011 2 1`)
-vm.run(`0010 1 2 3`)
-vm.run(`0100 3`)
+// vm.runln(`0011 1 2`)
+// vm.runln(`0011 2 1`)
+// vm.runln(`0010 1 2 3`)
+// vm.runln(`0100 3`)
+vm.evaulate(`0011 1 2 3
+0011 2 1
+0010 1 2 3
+0100 3
+1001 4
+1111
+`)

@@ -25,6 +25,8 @@ class VM {
          this.heap = []
          this.instructions = {}
          this.console_mode = console_mode
+         this.last_compare = false
+         this.cline = 0
     }
     run(bin){
 let binary = bin.split('\n')
@@ -36,6 +38,18 @@ if(this.instructions[line.split(" ")[0]]){
 }
         })
     }
+evaulate(code){
+    // console.log(code.split('\n'))
+code = code.split('\n')
+// console.log(code)
+// // console.log(this.runln)
+this.runln(code[this.cline])
+this.cline += 1
+if(this.cline < code.length){
+    // console.log(this.cline, code.length)
+        this.evaulate(code.join("\n"))
+    }
+}
 
 prep(bleh){
 let s = this.schematic.split(";")
@@ -69,6 +83,9 @@ if(this.console_mode == true){
             this.instructions[line.split(" ")[0]].execute(line.split(" "),this)
         }
 
+    }
+    assemble(code){
+console.log(code)
     }
 
 }
